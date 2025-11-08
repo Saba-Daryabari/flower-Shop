@@ -1,0 +1,278 @@
+*,
+*::before,
+*::after {
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: 300;
+  overflow-x: 0;
+}
+.logo {
+  padding-left: 2rem;
+}
+.navigation {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+/* Desktop menu */
+.mainMenu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  margin-left: 5rem;
+  padding: 0;
+}
+
+.mainMenuItem a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 300;
+  font-size: 2.2rem;
+  padding: 1rem;
+  display: inline-block;
+}
+
+.megaDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem 5rem;
+  z-index: 100;
+}
+
+.submenuColumn {
+  width: 30%;
+  border-right: 1px solid #ddd;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.childColumn {
+  width: 70%;
+  list-style: none;
+  margin: 0;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.submenuItem {
+  padding: 1rem 0;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.submenuItem.active,
+.submenuItem:hover {
+  color: #000;
+  font-weight: 500;
+}
+
+.childColumn a {
+  color: #555;
+  text-decoration: none;
+  display: block;
+  padding: 1rem 0;
+}
+
+.childColumn a:hover {
+  color: #000;
+}
+.searchIcon {
+  font-size: 4rem;
+  margin-left: auto;
+}
+.loginIcon {
+  font-size: 4rem;
+  margin: 0 2rem;
+}
+/* Mobile menu */
+.mobileHeader {
+  height: 100vh;
+  width: 100%;
+  display: none;
+}
+.menuIcon {
+  display: none;
+  font-size: 4rem;
+  padding-right: 1rem;
+}
+
+.mobileMenuList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  transition: all 0.3s ease-in-out;
+}
+.mobileMenuList:first-child {
+  padding-top: 2rem;
+}
+.mobileMenuItems {
+  display: flex;
+  padding: 0.8rem;
+  animation: showMobileModal 0.3s ease;
+}
+.mobileMenuTitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+.menuItemArrow {
+  margin-left: auto;
+  font-size: 2rem;
+  color: rgb(79, 76, 77);
+  animation: showMobileModal 0.5s ease;
+}
+.mobileMenuItems a {
+  text-decoration: none;
+  color: rgb(79, 76, 77);
+}
+/*Search Bar*/
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.searchWrapper {
+  display: flex;
+  width: 100%;
+  padding: 0 2rem;
+  gap: 1rem;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+.searchBar {
+  justify-self: center;
+  border: none;
+  padding: 1.1rem 1.6rem;
+  font-size: 1.8rem;
+  border-radius: 0.7rem;
+  width: 100%;
+  transition: all 0.3s;
+  color: #000;
+  background-color: #fff;
+}
+
+.searchBar::placeholder {
+  color: #333;
+}
+
+.searchBar:focus {
+  outline: none;
+}
+.closeSearch {
+  font-size: 2.4rem;
+  margin-left: auto;
+  margin-left: 1rem;
+  color: #000;
+  cursor: pointer;
+  border: none;
+}
+.searchResultsWrapper {
+  width: 100%;
+  transform: translateY(20%);
+  background-color: #fff;
+}
+.searchResults {
+  padding: 0rem 1rem;
+}
+.noResults {
+  font-size: 2rem;
+  text-align: center;
+  padding: 0rem 0;
+}
+
+.bannerContainer {
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+.bannerImage {
+  width: 100%;
+}
+/* media queries*/
+
+@media (max-width: 768px) {
+  .desktopHeader {
+    display: none;
+  }
+  .menuIcon {
+    display: block;
+  }
+  .mobileHeader {
+    display: block;
+  }
+  .searchIcon {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .mobileMenuList {
+    padding: 0 1.5rem;
+  }
+}
+@media (max-width: 376px) {
+  .mobileMenuList {
+    padding: 0 3.5rem;
+  }
+}
+@media (max-width: 320px) {
+  .mobileMenuList {
+    padding: 0 3rem;
+  }
+}
+/* Key frames*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes showMobileModal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
