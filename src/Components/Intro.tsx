@@ -1,7 +1,24 @@
 import IntroImage from "../assets/intro.jpg";
 import { FaHeart } from "react-icons/fa";
+import "../styles/collection.scss";
+import { useEffect } from "react";
 
 export default function Intro() {
+
+    useEffect(() => {
+        const el = document.querySelector(".introContainer");
+        if (!el) return;
+
+        const update = () => {
+            const { left } = el.getBoundingClientRect()
+            document.documentElement.style.setProperty("--inline-padding", `${left}px`);
+        };
+
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, []);
+
     return (
         <div className="container">
             <div className="introContainer">
