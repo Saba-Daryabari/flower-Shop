@@ -3,6 +3,7 @@ import axios from "axios";
 import ProductCard from "./ProductCard";
 import type { Product } from "./types";
 import "../styles/collection.scss";
+import "../styles/globals.scss";
 
 export default function Collection() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -15,15 +16,15 @@ export default function Collection() {
   }, []);
 
   return (
-    <div className="container">
+    <section className="container">
       <div className="collectionContainer">
-        <h3 className="collectionTitle">Collections</h3>
+        <h3 className="introHeading">Collections</h3>
         <div className="collection">
           {products.slice(0, 8).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,8 +1,3 @@
-.container {
-  margin: 6rem auto;
-  width: 100%;
-  padding: 0 5rem;
-}
 .collectionContainer {
   width: 100%;
   padding: 0 5rem;
@@ -25,7 +20,6 @@
   align-items: center;
   justify-items: center;
   gap: 3rem;
-
 }
 .productCard {
   width: 100%;
@@ -60,26 +54,3 @@
   color: rgb(175, 175, 175);
   cursor: pointer;
 }
-//Intro
-.introContainer{
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  align-items: center;
-  justify-items: center;
-  background-color: #f7f7f7;
-  margin: 0 calc(var(--inline-padding)*-1);
-}
-.introImage{
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 16/9;
-}
-.introCaption{}
-.introHeading{}
-.textRed{
-  color: #f34f3f;
-}
-.introDetails{}
-.introList{}
-.introListItem{}

@@ -1,3 +1,26 @@
 :root {
-    --inline-padding: 0;
+  --inline-padding: 0;
+}
+.container {
+  margin: 6rem auto;
+  width: 100%;
+  padding: 0 5rem;
+}
+.backgroundGrey {
+  background-color: #f7f7f7;
+  padding: 3rem 4rem;
+}
+.textCenter {
+  text-align: center;
+}
+.introHeading {
+  font-size: 4rem;
+  font-family: "Playfair Display", serif;
+  color: #2b2b2b;
+}
+.introDetails {
+  color: #6d6a6a;
+  font-size: 1.8rem;
+  font-family: "lora", serif;
+  line-height: 3rem;
 }

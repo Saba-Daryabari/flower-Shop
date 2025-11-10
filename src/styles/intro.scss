@@ -1,0 +1,41 @@
+.introContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 4rem;
+}
+.introImage {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+.introCaption {
+  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.textRed {
+  color: #f34f3f;
+  font-size: 4rem;
+  font-family: "Playfair Display", serif;
+  margin-right: 1rem;
+}
+
+.introList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  color: #6d6a6a;
+}
+
+.introListItem {
+  display: flex;
+  align-items: center;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
