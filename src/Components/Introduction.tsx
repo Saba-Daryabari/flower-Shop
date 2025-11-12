@@ -18,32 +18,32 @@ export default function Introduction() {
           <div className="expertImageContainer">
             <img src={expert1} alt="expert image" className="expertImage" />
           </div>
-          <div className="expertName">Crystal Brooks</div>
-          <div className="expertTitle">Florist</div>
+          <div className="titleName">Crystal Brooks</div>
+          <div className="titleInfo">Florist</div>
         </div>
         <div className="expert">
           <div className="expertImageContainer">
             {" "}
             <img src={expert2} alt="expert image" className="expertImage" />
           </div>
-          <div className="expertName">Shirley Harris</div>
-          <div className="expertTitle">Manager</div>
+          <div className="titleName">Shirley Harris</div>
+          <div className="titleInfo">Manager</div>
         </div>
         <div className="expert">
           <div className="expertImageContainer">
             {" "}
             <img src={expert3} alt="expert image" className="expertImage" />
           </div>
-          <div className="expertName">Beverly Clark</div>
-          <div className="expertTitle">Florist</div>
+          <div className="titleName">Beverly Clark</div>
+          <div className="titleInfo">Florist</div>
         </div>
         <div className="expert">
           <div className="expertImageContainer">
             {" "}
             <img src={expert4} alt="expert image" className="expertImage" />
           </div>
-          <div className="expertName">Amanda Watkins</div>
-          <div className="expertTitle">Florist</div>
+          <div className="titleName">Amanda Watkins</div>
+          <div className="titleInfo">Florist</div>
         </div>
       </div>
     </section>

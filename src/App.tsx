@@ -4,6 +4,7 @@ import Banner from "./Components/Banner";
 import Intro from "./Components/Intro";
 import Introduction from "./Components/Introduction";
 import Slider from "./Components/Slider";
+import Footer from "./Components/Footer";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Intro />
       <Introduction />
       <Slider />
+      <Footer />
     </div>
   );
 }
