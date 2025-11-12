@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Banner from "./Components/Banner";
 import Intro from "./Components/Intro";
 import Introduction from "./Components/Introduction";
+import Slider from "./Components/Slider";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Collection />
       <Intro />
       <Introduction />
+      <Slider />
     </div>
   );
 }

@@ -1,0 +1,24 @@
+@use "./mixins.scss" as m;
+.slider-wrapper {
+  padding: 3rem 0;
+  @include m.breakpoint("tablet") {
+    padding: 2rem 0;
+  }
+}
+.mySwiper {
+  overflow: visible;
+}
+.img {
+  width: 100%;
+  height: 40rem;
+  object-fit: cover;
+  @include m.breakpoint("tablet") {
+    height: 30rem;
+  }
+  @include m.breakpoint("mobile-l") {
+    height: 28rem;
+  }
+  @include m.breakpoint("mobile-s") {
+    height: 20rem;
+  }
+}
