@@ -1,3 +1,5 @@
+@use "./mixins.scss" as m;
+
 :root {
   --inline-padding: 0;
 }
@@ -6,10 +8,22 @@
   width: 100%;
   padding: 0 5rem;
   overflow: hidden;
+  @include m.breakpoint("tablet") {
+    margin: 4rem auto;
+  }
+  @include m.breakpoint("mobile-l") {
+    font-size: 2.4rem;
+  }
 }
 .backgroundGrey {
   background-color: #f7f7f7;
   padding: 3rem 4rem;
+  @include m.breakpoint("tablet") {
+    padding: 2rem 3rem;
+  }
+  @include m.breakpoint("mobile-l") {
+    padding: 0;
+  }
 }
 .textCenter {
   text-align: center;
@@ -19,10 +33,24 @@
   font-family: "Playfair Display", serif;
   color: #2b2b2b;
   text-transform: uppercase;
+  @include m.breakpoint("tablet") {
+    font-size: 3rem;
+  }
+  @include m.breakpoint("mobile-l") {
+    font-size: 2.4rem;
+  }
 }
 .introDetails {
   color: #6d6a6a;
   font-size: 1.8rem;
   font-family: "lora", serif;
   line-height: 3rem;
+  @include m.breakpoint("tablet") {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+  @include m.breakpoint("mobile-l") {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
 }

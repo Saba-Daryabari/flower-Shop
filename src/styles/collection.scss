@@ -1,3 +1,5 @@
+@use "./mixins.scss" as m;
+
 .collectionContainer {
   width: 100%;
   padding: 0 5rem;
@@ -6,13 +8,12 @@
   align-items: center;
   justify-items: center;
   gap: 3rem;
-}
-.collectionTitle {
-  font-size: 4rem;
-  font-family: Montserrat, sans-serif;
-  color: rgb(50, 50, 50);
-  font-weight: 400;
-  text-transform: uppercase;
+  @include m.breakpoint("tablet") {
+    padding: 0 2rem;
+  }
+  @include m.breakpoint("mobile-l") {
+    padding: 0 1rem;
+  }
 }
 .collection {
   display: grid;
@@ -20,6 +21,12 @@
   align-items: center;
   justify-items: center;
   gap: 3rem;
+  @include m.breakpoint("tablet") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include m.breakpoint("mobile-l") {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .productCard {
   width: 100%;

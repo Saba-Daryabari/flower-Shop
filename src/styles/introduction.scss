@@ -1,9 +1,22 @@
+@use "./mixins.scss" as m;
+
 .expertsContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10rem;
   padding: 4rem 8rem;
+  @include m.breakpoint("tablet") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 2rem 1rem;
+    justify-items: center;
+    align-items: center;
+  }
+  @include m.breakpoint("mobile-l") {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .expert {
   display: flex;

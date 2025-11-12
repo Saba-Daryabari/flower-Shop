@@ -1,3 +1,5 @@
+@use "./mixins.scss" as m;
+
 *,
 *::before,
 *::after {
@@ -128,6 +130,17 @@
   flex-direction: column;
   padding: 0 3rem;
   transition: all 0.3s ease-in-out;
+  @include m.breakpoint("mobile-l") {
+    padding: 0 1.5rem;
+  }
+
+  @include m.breakpoint("mobile-m") {
+    padding: 0 3.5rem;
+  }
+
+  @include m.breakpoint("mobile-s") {
+    padding: 0 3rem;
+  }
 }
 .mobileMenuList:first-child {
   padding-top: 2rem;
@@ -214,36 +227,21 @@
 .bannerImage {
   width: 100%;
 }
-/* media queries*/
-
-@media (max-width: 768px) {
+@include m.breakpoint("tablet") {
   .desktopHeader {
     display: none;
   }
+
   .menuIcon {
     display: block;
   }
+
   .mobileHeader {
     display: block;
   }
+
   .searchIcon {
     margin-left: auto;
-  }
-}
-
-@media (max-width: 425px) {
-  .mobileMenuList {
-    padding: 0 1.5rem;
-  }
-}
-@media (max-width: 376px) {
-  .mobileMenuList {
-    padding: 0 3.5rem;
-  }
-}
-@media (max-width: 320px) {
-  .mobileMenuList {
-    padding: 0 3rem;
   }
 }
 /* Key frames*/
