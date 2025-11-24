@@ -1,0 +1,53 @@
+.review {
+  &-swiper-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 10rem auto;
+    padding: 40px 0;
+  }
+
+  &-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8rem;
+    gap: 3rem;
+  }
+
+  &-img {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+    object-fit: cover; 
+  }
+
+  &-text {
+    font-size: 2.4rem; 
+    font-family: Lora, serif;
+    color: #444;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 90%;
+  }
+
+  &-author {
+    font-weight: bold;
+    color: #444;
+    font-size: 1.1rem;
+  }
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #444;
+}
+
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #000;
+}

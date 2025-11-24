@@ -1,20 +1,26 @@
-import Collection from "./Components/Collection";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
-import Banner from "./Components/Banner";
-import Intro from "./Components/Intro";
-import Introduction from "./Components/Introduction";
-import Slider from "./Components/Slider";
+import Home from "./pages/Home";
 import Footer from "./Components/Footer";
+import AboutUs from "./pages/AboutUs";
+import Blog from "./pages/Blog";
+import './App.scss';
+import Collection from "./Components/Collection";
 
 export default function App() {
   return (
     <div className="App">
       <Header />
-      <Banner />
-      <Collection />
-      <Intro />
-      <Introduction />
-      <Slider />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about-us" element={<AboutUs />} />
+        <Route path="shop" element={<Collection limit={20}/>} />
+        <Route path="blog" element={<Blog/>} />
+        
+      </Routes>
+      </BrowserRouter>
+      
       <Footer />
     </div>
   );

@@ -5,7 +5,7 @@ import type { Product } from "./types";
 import "../styles/collection.scss";
 import "../styles/globals.scss";
 
-export default function Collection() {
+export default function Collection({limit}: {limit?: number}) {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Collection() {
       <div className="collectionContainer">
         <h3 className="introHeading">Collections</h3>
         <div className="collection">
-          {products.slice(0, 8).map((product) => (
+          {products.slice(0, limit).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

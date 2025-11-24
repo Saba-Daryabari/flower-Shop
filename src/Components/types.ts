@@ -3,6 +3,7 @@ export interface MenuNode {
   url: string;
   level: number;
   links?: MenuNode[];
+  items?: MenuNode[];
 }
 
 export type Product = {
