@@ -91,6 +91,11 @@ function Header() {
     url: "/contact",
     level: 0,
   },
+  {
+    title: "FAQ",
+    url: "/faq",
+    level: 0,
+  },
 ];
 
 

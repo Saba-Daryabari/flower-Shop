@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroui/accordion": "^2.2.24",
+    "@heroui/react": "^2.8.5",
     "axios": "^1.13.2",
     "biome": "^0.3.3",
     "firebase": "^12.4.0",
