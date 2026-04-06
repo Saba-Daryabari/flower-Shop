@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/cta.scss'
 
 export default function CTA() {

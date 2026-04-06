@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/about-us.scss'
 import Intro from "../Components/Intro";
 import Introduction from "../Components/Introduction";

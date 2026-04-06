@@ -1,12 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  FreeMode,
-  Mousewheel,
-} from "swiper/modules";
+import { FreeMode, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "../styles/slider.scss";
 import "../styles/globals.scss";

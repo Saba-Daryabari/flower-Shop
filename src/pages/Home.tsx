@@ -1,4 +1,3 @@
-import React from 'react'
 import Collection from "../Components/Collection";
 import Banner from "../Components/Banner";
 import Intro from "../Components/Intro";

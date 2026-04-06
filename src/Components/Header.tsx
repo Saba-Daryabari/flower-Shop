@@ -12,7 +12,7 @@ import { useCart } from "../context/CartContext";
 function Header() {
   const [openMobile, setOpenMobile] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-  const { itemCount, openCart } = useCart();
+  const { itemCount } = useCart();
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
   };

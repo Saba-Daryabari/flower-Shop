@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import reviewer1 from "../assets/reviewer1.jpg"
