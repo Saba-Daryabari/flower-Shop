@@ -1,8 +1,30 @@
 @use "./mixins.scss" as m;
 
 :root {
+  --color-rose: #d4687a;
+  --color-rose-light: #f0a0af;
+  --color-blush: #fce8ec;
+  --color-sage: #7a9e7e;
+  --color-sage-light: #c5dbc7;
+  --color-cream: #fdf6f0;
+  --color-warm-white: #fffaf7;
+  --color-gold: #c9a96e;
+  --color-text-dark: #3d2c2c;
+  --color-text-mid: #7a6060;
+  --color-text-light: #b09898;
+  --color-border: #f0e0e0;
+  --font-serif: "Playfair Display", serif;
+  --font-body: "Lora", serif;
+  --font-sans: "Montserrat", sans-serif;
+  --shadow-soft: 0 4px 20px rgba(180, 100, 100, 0.08);
+  --shadow-card: 0 8px 32px rgba(180, 100, 100, 0.12);
+  --shadow-hover: 0 16px 48px rgba(180, 100, 100, 0.18);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --inline-padding: 0;
 }
+
 .container {
   margin: 6rem auto;
   width: 100%;
@@ -10,29 +32,49 @@
   overflow: hidden;
   @include m.breakpoint("tablet") {
     margin: 4rem auto;
+    padding: 0 2.5rem;
   }
   @include m.breakpoint("mobile-l") {
     font-size: 2.4rem;
+    padding: 0 1.5rem;
   }
 }
+
 .backgroundGrey {
-  background-color: #f7f7f7;
+  background: linear-gradient(135deg, var(--color-cream) 0%, #fef0f3 100%);
   padding: 3rem 4rem;
   @include m.breakpoint("tablet") {
     padding: 2rem 3rem;
   }
   @include m.breakpoint("mobile-l") {
-    padding: 0;
+    padding: 1rem;
   }
 }
+
 .textCenter {
   text-align: center;
 }
+
 .introHeading {
   font-size: 4rem;
-  font-family: "Playfair Display", serif;
-  color: #2b2b2b;
+  font-family: var(--font-serif);
+  color: var(--color-text-dark);
   text-transform: uppercase;
+  letter-spacing: 0.06em;
+  position: relative;
+  display: block;
+  text-align: center;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-rose), var(--color-rose-light));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+  }
+
   @include m.breakpoint("tablet") {
     font-size: 3rem;
   }
@@ -40,28 +82,52 @@
     font-size: 2.4rem;
   }
 }
+
 .introDetails {
-  color: #6d6a6a;
+  color: var(--color-text-mid);
   font-size: 1.8rem;
-  font-family: "lora", serif;
-  line-height: 3rem;
+  font-family: var(--font-body);
+  line-height: 3.2rem;
   @include m.breakpoint("tablet") {
     font-size: 1.4rem;
-    line-height: 2rem;
+    line-height: 2.2rem;
   }
   @include m.breakpoint("mobile-l") {
-    font-size: 1rem;
-    line-height: 1.4rem;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
   }
 }
+
 .titleName {
   font-size: 1.6rem;
-  font-family: "Montserrat";
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--color-text-dark);
 }
+
 .titleInfo {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #9d9d9d;
-  font-family: "Montserrat";
+  color: var(--color-text-light);
+  font-family: var(--font-sans);
+}
+
+/* Decorative floral divider */
+.floral-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  color: var(--color-rose-light);
+  font-size: 1.4rem;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-rose-light), transparent);
+    max-width: 120px;
+  }
 }

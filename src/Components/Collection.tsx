@@ -5,8 +5,9 @@ import type { Product } from "./types";
 import "../styles/collection.scss";
 import "../styles/globals.scss";
 
-export default function Collection({limit}: {limit?: number}) {
+export default function Collection({ limit }: { limit?: number }) {
   const [products, setProducts] = useState<Product[]>([]);
+  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     axios
@@ -15,12 +16,42 @@ export default function Collection({limit}: {limit?: number}) {
       .catch(console.error);
   }, []);
 
+  const categories = [
+    "All",
+    ...Array.from(new Set(products.map((p) => p.category))),
+  ];
+
+  const filtered =
+    activeCategory === "All"
+      ? products.slice(0, limit)
+      : products
+          .filter((p) => p.category === activeCategory)
+          .slice(0, limit);
+
   return (
     <section className="container">
       <div className="collectionContainer">
-        <h3 className="introHeading">Collections</h3>
+        <div className="collectionHeader">
+          <h3 className="introHeading">Our Collections</h3>
+          <p className="introDetails collectionSubtitle">
+            Hand-picked blooms for every occasion
+          </p>
+        </div>
+
+        <div className="categoryFilters">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`categoryChip ${activeCategory === cat ? "categoryChip--active" : ""}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="collection">
-          {products.slice(0, limit).map((product) => (
+          {filtered.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

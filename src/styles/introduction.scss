@@ -3,34 +3,84 @@
 .expertsContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 10rem;
-  padding: 4rem 8rem;
+  align-items: flex-start;
+  gap: 5rem;
+  padding: 4rem 6rem;
+
   @include m.breakpoint("tablet") {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     padding: 2rem 1rem;
     justify-items: center;
-    align-items: center;
+    align-items: start;
   }
+
   @include m.breakpoint("mobile-l") {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
 .expert {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+
+    .expertImage {
+      border-color: rgba(212, 104, 122, 0.5);
+      box-shadow: 0 16px 48px rgba(180, 100, 100, 0.22);
+    }
+  }
+
+  /* name — rendered as div.titleName */
+  .titleName {
+    font-size: 1.6rem;
+    font-family: "Playfair Display", serif;
+    color: #3d2c2c;
+    font-weight: 600;
+    margin-top: 0.4rem;
+  }
+
+  /* role — rendered as div.titleInfo */
+  .titleInfo {
+    font-size: 1.15rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: #d4687a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
 }
+
 .expertImageContainer {
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
 }
+
 .expertImage {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  object-fit: cover;
+  /* ring + shadow as box-shadow — doesn't affect layout, no scroll */
+  box-shadow:
+    0 0 0 4px rgba(212, 104, 122, 0.18),
+    0 8px 28px rgba(180, 100, 100, 0.13);
+  transition: box-shadow 0.3s ease;
+}
+
+.expert:hover .expertImage {
+  box-shadow:
+    0 0 0 5px rgba(212, 104, 122, 0.38),
+    0 16px 48px rgba(180, 100, 100, 0.22);
 }

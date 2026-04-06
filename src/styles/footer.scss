@@ -1,30 +1,59 @@
 .footer {
-  background: #fefaf3;
-  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #fdf6f0 0%, #fce8ec 100%);
+  padding: 5rem 1rem 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-
+  border-top: 1px solid rgba(212, 104, 122, 0.15);
 
   .footerContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     align-items: start;
-    gap: 10rem;
+    gap: 5rem;
     padding-bottom: 4rem;
-    border-bottom: #c1c1c1 1px solid;
+    border-bottom: 1px solid rgba(212, 104, 122, 0.18);
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .footerSection {
-    min-width: 200px;
+    min-width: 140px;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2.5rem;
+
+    /* Style the titleName heading inside footer */
+    .titleName {
+      font-size: 1.3rem;
+      font-family: "Playfair Display", serif;
+      color: #3d2c2c;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 1rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 28px;
+        height: 2px;
+        background: linear-gradient(90deg, #d4687a, #f0a0af);
+        border-radius: 2px;
+      }
+    }
   }
 
   .footerLinks {
@@ -33,24 +62,37 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
+    gap: 1.2rem;
+
+    /* titleInfo li items */
+    .titleInfo {
+      color: inherit;
+    }
 
     a {
-      color: #777;
+      color: #7a6060;
       text-decoration: none;
-      font-size: 0.95rem;
       font-size: 1.4rem;
+      font-family: "Lora", serif;
+      transition: all 0.22s ease;
+      display: inline-block;
 
       &:hover {
-        color: #f34f3f;
+        color: #d4687a;
+        transform: translateX(4px);
       }
     }
   }
+
   .copyright {
     text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 1.8rem;
-    color: #aaa;
+    padding-top: 2.5rem;
+    font-size: 1.3rem;
+    color: #b09898;
+    font-family: "Montserrat", sans-serif;
+
+    span {
+      color: #d4687a;
+    }
   }
 }
