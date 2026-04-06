@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-
 import "../styles/PDP.scss";
 import { useState } from "react";
+import { useCart } from "../context/CartContext";
 
 interface Variant {
   size: string;
@@ -21,41 +21,52 @@ interface Product {
 export default function PDP() {
   const { state } = useLocation();
   const product = state?.product as Product | undefined;
-  const imageUrl = `http://localhost:3000${product.image}`;
+  const { addItem } = useCart();
 
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState<Variant | null>(
     product?.variants?.[0] || null
   );
+  const [added, setAdded] = useState(false);
+
+  if (!product) return <h2 style={{ padding: "4rem", textAlign: "center" }}>Product not found</h2>;
+
+  const imageUrl = `http://localhost:3000${product.image}`;
+
   const increaseQty = () => {
     if (selectedVariant && quantity < selectedVariant.stock) {
       setQuantity(quantity + 1);
     }
   };
 
-  const decreaseQty = () => {
-    setQuantity(quantity > 1 ? quantity - 1 : 1);
-  };
+  const decreaseQty = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
 
-  if (!product) return <h2>Product not found</h2>;
+  const handleAddToCart = () => {
+    addItem(product as any, selectedVariant, quantity);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
 
   return (
     <div className="pdp">
       <div className="pdp-images">
         <div className="main-image">
-          <img src={imageUrl} alt="Product" />
+          <img src={imageUrl} alt={product.title} />
         </div>
       </div>
 
       <div className="pdp-info">
+        <p className="pdp-eyebrow">{product.category}</p>
         <h1>{product.title}</h1>
         <p className="price">${product.price}</p>
+
+        <div className="pdp-divider" />
+
         <p className="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          tincidunt, nisl nec egestas fermentum, nulla sapien bibendum sapien,
-          at pulvinar libero risus ut magna. Praesent efficitur semper libero,
-          at cursus nunc fermentum eu.
+          {product.description ||
+            "A beautiful, hand-picked arrangement crafted with love. Perfect for any occasion — from romantic gestures to heartfelt gifts."}
         </p>
+
         {product.variants.length > 0 && (
           <div className="variant-select">
             <label htmlFor="variant">Choose a size:</label>
@@ -64,14 +75,13 @@ export default function PDP() {
               value={selectedVariant?.size}
               onChange={(e) =>
                 setSelectedVariant(
-                  product.variants.find((v) => v.size === e.target.value) ||
-                    null
+                  product.variants.find((v) => v.size === e.target.value) || null
                 )
               }
             >
               {product.variants.map((v) => (
                 <option key={v.size} value={v.size}>
-                  {v.size} ({v.stock} in stock)
+                  {v.size} — {v.stock} in stock
                 </option>
               ))}
             </select>
@@ -80,31 +90,33 @@ export default function PDP() {
 
         <div className="quantity-add">
           <div className="quantity">
-            <button onClick={decreaseQty}>-</button>
+            <button onClick={decreaseQty}>−</button>
             <span>{quantity}</span>
             <button
               onClick={increaseQty}
-              disabled={
-                selectedVariant ? quantity >= selectedVariant.stock : true
-              }
+              disabled={selectedVariant ? quantity >= selectedVariant.stock : true}
             >
               +
             </button>
           </div>
           <button
             className="add-to-cart"
+            onClick={handleAddToCart}
             disabled={!selectedVariant || selectedVariant.stock === 0}
           >
-            {selectedVariant?.stock === 0
+            {added
+              ? "Added!"
+              : selectedVariant?.stock === 0
               ? "Out of Stock"
-              : `Add to Cart (${quantity})`}
+              : `Add to Cart — $${(product.price * quantity).toFixed(2)}`}
           </button>
         </div>
 
         <div className="sku-cat-tags">
-          <p>
-            <strong>Categories:</strong> {product.category}
-          </p>
+          <p><strong>Category:</strong> {product.category}</p>
+          {selectedVariant && (
+            <p><strong>Stock:</strong> {selectedVariant.stock} remaining</p>
+          )}
         </div>
       </div>
     </div>
