@@ -3,73 +3,217 @@
 .collectionContainer {
   width: 100%;
   padding: 0 5rem;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
-  gap: 3rem;
+  gap: 3.5rem;
+
   @include m.breakpoint("tablet") {
     padding: 0 2rem;
+    gap: 2.5rem;
   }
   @include m.breakpoint("mobile-l") {
     padding: 0 1rem;
   }
 }
+
+.collectionHeader {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.collectionSubtitle {
+  margin-top: 0.5rem;
+}
+
+/* ── Category filter chips ───────────────────────────── */
+.categoryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.categoryChip {
+  padding: 0.7rem 2rem;
+  border-radius: 30px;
+  border: 1.5px solid rgba(212, 104, 122, 0.25);
+  background: #fffaf7;
+  color: #7a6060;
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: #d4687a;
+    color: #d4687a;
+    background: rgba(212, 104, 122, 0.06);
+  }
+
+  &--active {
+    background: linear-gradient(135deg, #d4687a 0%, #c05570 100%);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(212, 104, 122, 0.3);
+
+    &:hover {
+      color: #fff;
+      background: linear-gradient(135deg, #c05570 0%, #a8435e 100%);
+    }
+  }
+}
+
+/* ── Product grid ─────────────────────────────────────── */
 .collection {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  justify-items: center;
-  gap: 3rem;
+  align-items: start;
+  gap: 2.8rem;
+  width: 100%;
+
   @include m.breakpoint("tablet") {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   @include m.breakpoint("mobile-l") {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+/* ── Product card ─────────────────────────────────────── */
 .productCard {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  scrollbar-width: none;
+  gap: 0;
+  cursor: pointer;
+  border-radius: 18px;
   overflow: hidden;
+  background: #fffaf7;
+  border: 1.5px solid rgba(212, 104, 122, 0.1);
+  box-shadow: 0 4px 20px rgba(180, 100, 100, 0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 52px rgba(180, 100, 100, 0.16);
+    border-color: rgba(212, 104, 122, 0.22);
+
+    .productCardImage {
+      transform: scale(1.07);
+    }
+
+    .productCardOverlay {
+      opacity: 1;
+    }
+  }
 }
 
-.imageContainer{
-  transition: all 0.15s ease-in-out;
+/* ── Image area ───────────────────────────────────────── */
+.imageContainer {
+  position: relative;
   overflow: hidden;
-
-}
-
-.imageContainer:hover{
-  scale: 1.02;
-  transition: all 0.15s ease-in-out;
-
+  width: 100%;
+  aspect-ratio: 4/5;
 }
 
 .productCardImage {
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  aspect-ratio: 4/5;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.productCardCategory {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  background: rgba(255, 250, 247, 0.9);
+  backdrop-filter: blur(6px);
+  color: #d4687a;
+  font-size: 1.05rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 104, 122, 0.2);
+}
+
+.productCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(61, 44, 44, 0.55) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.productCardCTA {
+  background: #fff;
+  color: #d4687a;
+  border: none;
+  padding: 0.9rem 2.4rem;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    background: #d4687a;
+    color: #fff;
+  }
+}
+
+/* ── Text info below image ────────────────────────────── */
+.productCardInfo {
+  padding: 1.4rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .productCardTitle {
-  font-size: 1.2rem;
-  font-family: Montserrat, sans-serif;
+  font-size: 1.35rem;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
-  font-weight: 500;
-  cursor: pointer;
-}
-.productCardPrice {
-  font-size: 1rem;
-  font-family: Montserrat, sans-serif;
   font-weight: 600;
-  color: rgb(175, 175, 175);
-  cursor: pointer;
+  color: #3d2c2c;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+
+  &:hover {
+    color: #d4687a;
+  }
+}
+
+.productCardPrice {
+  font-size: 1.25rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #d4687a;
+  font-style: italic;
 }
