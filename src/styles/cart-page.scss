@@ -1,0 +1,397 @@
+.cart-page {
+  min-height: 60vh;
+  background: #fffaf7;
+}
+
+/* ── Banner ───────────────────────────────────────────── */
+.cart-page-banner {
+  background: linear-gradient(135deg, #fdf6f0 0%, rgba(252, 232, 236, 0.6) 100%);
+  border-bottom: 1px solid rgba(212, 104, 122, 0.12);
+  padding: 4rem 8rem;
+
+  h1 {
+    font-size: 4rem;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    color: #3d2c2c;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    font-family: "Lora", serif;
+    color: #b09898;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 2rem;
+  }
+}
+
+/* ── Empty state ──────────────────────────────────────── */
+.cart-page-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 8rem 2rem;
+  text-align: center;
+
+  .cart-page-empty-icon {
+    font-size: 7rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    color: #3d2c2c;
+  }
+
+  p {
+    font-size: 1.6rem;
+    font-family: "Lora", serif;
+    color: #7a6060;
+  }
+}
+
+.cart-page-shop-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1.4rem 3.5rem;
+  background: linear-gradient(135deg, #d4687a 0%, #c05570 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 40px;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 24px rgba(212, 104, 122, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(212, 104, 122, 0.4);
+  }
+}
+
+/* ── Layout ───────────────────────────────────────────── */
+.cart-page-content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 4rem;
+  padding: 4rem 8rem;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    padding: 3rem 3rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ── Items column ─────────────────────────────────────── */
+.cart-page-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #fff;
+  border-radius: 20px;
+  border: 1.5px solid rgba(212, 104, 122, 0.1);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(180, 100, 100, 0.07);
+}
+
+.cart-page-items-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 1.6rem 2.4rem;
+  background: linear-gradient(135deg, #fdf6f0, rgba(252, 232, 236, 0.4));
+  border-bottom: 1px solid rgba(212, 104, 122, 0.12);
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b09898;
+
+  span:not(:first-child) {
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.cart-page-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 2.4rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(212, 104, 122, 0.08);
+  transition: background 0.2s ease;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(252, 232, 236, 0.1);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.cart-page-item-product {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.cart-page-item-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 104, 122, 0.1);
+}
+
+.cart-page-item-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cart-page-item-title {
+  font-size: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #3d2c2c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.cart-page-item-variant {
+  font-size: 1.2rem;
+  font-family: "Lora", serif;
+  color: #b09898;
+}
+
+.cart-page-item-remove {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  color: #c9a8a8;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+  text-align: left;
+
+  &:hover {
+    color: #d4687a;
+  }
+}
+
+.cart-page-item-price,
+.cart-page-item-total {
+  font-size: 1.6rem;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: #3d2c2c;
+  text-align: center;
+}
+
+.cart-page-item-total {
+  font-weight: 700;
+  color: #d4687a;
+}
+
+.cart-page-item-qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 1.5px solid rgba(212, 104, 122, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0 auto;
+
+  button {
+    background: #fffaf7;
+    border: none;
+    padding: 0.7rem 1.1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #5a3f3f;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background: rgba(212, 104, 122, 0.1);
+      color: #d4687a;
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    font-size: 1.4rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    min-width: 3.5rem;
+    text-align: center;
+    color: #3d2c2c;
+    border-left: 1.5px solid rgba(212, 104, 122, 0.15);
+    border-right: 1.5px solid rgba(212, 104, 122, 0.15);
+    padding: 0.7rem 0;
+  }
+}
+
+.cart-page-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem 2.4rem;
+  background: #fdf6f0;
+  border-top: 1px solid rgba(212, 104, 122, 0.1);
+}
+
+.cart-page-clear {
+  background: none;
+  border: 1.5px solid rgba(212, 104, 122, 0.25);
+  color: #b09898;
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: #d4687a;
+    color: #d4687a;
+  }
+}
+
+.cart-page-continue {
+  font-size: 1.3rem;
+  font-family: "Lora", serif;
+  font-style: italic;
+  color: #d4687a;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+/* ── Summary column ───────────────────────────────────── */
+.cart-page-summary {
+  background: #fff;
+  border-radius: 20px;
+  border: 1.5px solid rgba(212, 104, 122, 0.1);
+  box-shadow: 0 4px 24px rgba(180, 100, 100, 0.07);
+  padding: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: sticky;
+  top: 100px;
+}
+
+.cart-page-summary-title {
+  font-size: 2.2rem;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: #3d2c2c;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(212, 104, 122, 0.12);
+}
+
+.cart-page-summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cart-page-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-family: "Lora", serif;
+  color: #7a6060;
+}
+
+.cart-page-free {
+  color: #7a9e7e;
+  font-weight: 600;
+}
+
+.cart-page-summary-total {
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(212, 104, 122, 0.15);
+  font-size: 1.9rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #3d2c2c;
+
+  span:last-child {
+    color: #d4687a;
+    font-style: italic;
+  }
+}
+
+.cart-page-checkout {
+  width: 100%;
+  padding: 1.6rem;
+  background: linear-gradient(135deg, #d4687a 0%, #c05570 100%);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(212, 104, 122, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #c05570 0%, #a8435e 100%);
+    box-shadow: 0 10px 36px rgba(212, 104, 122, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+.cart-page-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-top: 0.5rem;
+
+  p {
+    font-size: 1.3rem;
+    font-family: "Lora", serif;
+    color: #7a6060;
+  }
+}
