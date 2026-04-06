@@ -1,14 +1,18 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import "../styles/header.scss";
 import MobileMenu from "./MobileMenu";
 import Menu from "./Menu";
 import { IoIosMenu, IoIosSearch, IoMdPerson } from "react-icons/io";
+import { IoBagOutline } from "react-icons/io5";
 import SearchBar from "./SearchBar";
 import type { MenuNode } from "./types";
+import { useCart } from "../context/CartContext";
 function Header() {
   const [openMobile, setOpenMobile] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const { itemCount, openCart } = useCart();
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
   };
@@ -114,9 +118,9 @@ function Header() {
           />
         ) : (
           <>
-            <a href="#" className="logo">
+            <Link to="/" className="logo">
               <img src={logo} alt="logo" />
-            </a>
+            </Link>
             <div className="desktopHeader">
               <Menu menuData={MenuItems} />
             </div>
@@ -126,6 +130,12 @@ function Header() {
             <div className="loginIcon">
               <IoMdPerson />
             </div>
+            <Link to="/cart" className="cartIcon" title="View cart">
+              <IoBagOutline />
+              {itemCount > 0 && (
+                <span className="cartBadge">{itemCount}</span>
+              )}
+            </Link>
             <div onClick={() => toggleMenu()} className="menuIcon">
               <IoIosMenu />
             </div>
