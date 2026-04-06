@@ -6,7 +6,7 @@ A fully responsive e-commerce flower shop built with React, TypeScript, and SCSS
 
 ## Live Demo
 
-> Start both servers (see [Getting Started](#getting-started)) and open `http://localhost:5173`
+**[https://saba-flower-shop.netlify.app](https://saba-flower-shop.netlify.app)**
 
 ---
 
